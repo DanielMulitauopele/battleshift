@@ -12,8 +12,8 @@ class BattleshiftService
   def conn
     #set env variable for endpoint
     # for now hardcode the heroku link
-    
-    Faraday.new(url: "http://localhost:3000")
+
+    Faraday.new(url: "https://gentle-reef-11092.herokuapp.com/")
   end
 
   def get_json(url)
