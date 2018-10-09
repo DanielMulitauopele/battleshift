@@ -5,7 +5,7 @@ feature 'visitor searches for user' do
     # GET /api/v1/users/:id
     # Background: There is a user stored in the database with an id of 1,
     # name of Josiah Bartlet, email of jbartlet@example.com
-    user = create(:user, name: "Josiah Bartlet", email: "bartlet@example.com")
+    user = create(:user, name: "Josiah Bartlet", email: "jbarlet@example.com")
     # As a guest user
     # When I visit "/users/1"
     visit "/users/1"
