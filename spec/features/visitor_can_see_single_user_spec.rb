@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'as a visitor' do
-  scenario 'can see single user show page' do
+feature 'user can see single user show page' do
+  scenario 'as a visitor' do
       # As a guest user
     user = create(:user)
       # When I visit "/users/1"
