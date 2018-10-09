@@ -6,5 +6,4 @@ class AppUser
     @name = data[:name]
     @email = data[:email]
   end
-
 end
