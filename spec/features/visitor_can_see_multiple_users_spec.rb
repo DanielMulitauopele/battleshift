@@ -1,18 +1,15 @@
 require 'rails_helper'
 
-feature 'user can see multiple user index page' do
+feature 'can see multiple users' do
   scenario 'as a visitor' do
-      # As a guest user
-    user1 = create(:user)
-    user2 = create(:user)
-      # When I visit "/users"
-    visit "/users"
-      # Then I should see the user's name (for both users)
-    expect(page).to have_content("All Users")
-    expect(page).to have_content(user1.name)
-    expect(page).to have_content(user2.name)
-      # And I should see the user's email (for both users)
-    expect(page).to have_content(user1.email)
-    expect(page).to have_content(user2.email)
+    # As a guest user
+    visit '/users'
+    # When I visit "/users"
+    # Then I should see the user's name (for both users)
+    # And I should see the user's email (for both users)
+    expect(page).to have_content("Josiah Bartlet")
+    expect(page).to have_content("jbarlet@example.com")
+    expect(page).to have_content("Bob Bobson")
+    expect(page).to have_content("bbobson@example.com")
   end
 end
