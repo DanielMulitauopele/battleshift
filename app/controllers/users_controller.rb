@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     @user = AppUser.new(data)
   end
 
+
+
+  
+
   def index
     @conn = Faraday.new(url: "http://localhost:3000")
 
