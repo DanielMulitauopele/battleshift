@@ -10,6 +10,9 @@ class BattleshiftService
   private
 
   def conn
+    #set env variable for endpoint
+    # for now hardcode the heroku link
+    
     Faraday.new(url: "http://localhost:3000")
   end
 
