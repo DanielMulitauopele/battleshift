@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def show
-    id = params[:id]
-    @user = AppUserRepo.new.app_user(id)
+    @user = AppUserRepo.new.app_user(params[:id])
   end
 
   def index
@@ -13,13 +12,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    id = params[:id]
-    email = params[:email]
-    user = AppUserRepo.new.app_user(id)
+    user = AppUserRepo.new.app_user(params[:id])
 
-    BattleshiftService.new.patch_user(id, email)
+    BattleshiftService.new.patch_user(params[:id], user_params)
 
     flash[:success] = "Successfully updated #{user.name}."
     redirect_to "/users"
+  end
+
+  private
+
+  def user_params
+    params.permit(:email)
   end
 end

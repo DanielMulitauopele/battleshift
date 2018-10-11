@@ -9,7 +9,6 @@ class BattleshiftService
 
   def patch_user(id, email)
     conn.patch("/api/v1/users/#{id}", {email: email})
-
   end
 
   private
