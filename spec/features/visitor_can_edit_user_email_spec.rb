@@ -10,7 +10,8 @@ feature 'user can edit user email' do
     end
     expect(current_path).to eq("/users/1/edit")
     fill_in :email, with: "josiah@example.com"
-    VCR.use_cassette("patch_user") do
+    
+    VCR.use_cassette("edit_user") do
       click_on("Save")
     end
     expect(current_path).to eq("/users")

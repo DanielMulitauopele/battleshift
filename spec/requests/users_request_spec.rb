@@ -4,8 +4,9 @@ describe "users api endpoints" do
   context "GET /api/v1/users" do
     it "returns a list of users" do
       create_list(:user, 2)
-
-      get "/api/v1/users"
+      VCR.use_cassette("get users") do
+        get "/api/v1/users"
+      end
 
       expect(response.status).to be 200
 
@@ -25,8 +26,9 @@ describe "users api endpoints" do
       cj   = User.create!(name: "C.J. Cregg", id: 111)
       toby = User.create!(name: "Toby Ziegler", id: 222)
 
-      get "/api/v1/users/#{cj.id}"
-
+      VCR.use_cassette("get user") do
+        get "/api/v1/users/#{cj.id}"
+      end
       expect(response.status).to be 200
 
       returned_user = JSON.parse(response.body, symbolize_names: true)
@@ -41,10 +43,11 @@ describe "users api endpoints" do
   context "PATCH /api/v1/users/:id" do
     it 'edits a specific user' do
       cj   = User.create!(name: "C.J. Cregg", id: 111, email: "cj@example.com")
-
       new_email = "cj@cj.com"
 
-      patch "/api/v1/users/#{cj.id}", params: {email: new_email}
+      VCR.use_cassette("patch user") do
+        patch "/api/v1/users/#{cj.id}", params: {email: new_email}
+      end
       expect(response.status).to be 200
 
       updated_response = JSON.parse(response.body, symbolize_names: true)
