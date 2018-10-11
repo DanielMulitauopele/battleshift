@@ -1,17 +1,1 @@
-production:
-  SECRET_KEY_BASE: f293719d9f00ebd152e6906b73ff2b43a43e41e11004417b6d3da4362d90da104fe4f3101ac29e72bab4e84963dbe3998b8ab5302d8a3206a3cd5428ce8970d0
-  RAILS_LOG_TO_STDOUT: yes
-  RAILS_SERVE_STATIC_FILES: yes
 
-
-# Add configuration values here, as shown below.
-#
-# pusher_app_id: "2954"
-# pusher_key: 7381a978f7dd7f9a1117
-# pusher_secret: abdc3b896a0ffb85d373
-# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
-# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
-#
-# production:
-#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
-#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
