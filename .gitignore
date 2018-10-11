@@ -20,6 +20,6 @@
 
 .byebug_history
 
-config/application.yml
+/config/application.yml
 
 /spec/cassettes
