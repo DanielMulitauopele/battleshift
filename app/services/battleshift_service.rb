@@ -7,13 +7,14 @@ class BattleshiftService
     get_json("/api/v1/users/#{id}")
   end
 
+  def patch_user(id, email)
+    conn.patch("/api/v1/users/#{id}", {email: email})
+  end
+
   private
 
   def conn
-    #set env variable for endpoint
-    # for now hardcode the heroku link
-
-    Faraday.new(url: "https://gentle-reef-11092.herokuapp.com/")
+    Faraday.new(url: "http://localhost:3000")
   end
 
   def get_json(url)

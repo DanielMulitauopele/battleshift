@@ -10,6 +10,9 @@ describe BattleshiftService do
   context 'instance methods' do
     context '#get_users' do
       it 'returns a array' do
+        json_response = File.open("./fixtures/all_users.json")
+        stub_request(:get, "http://localhost:3000/api/v1/users").
+        to_return(status: 200, body: json_response)
         service = BattleshiftService.new
 
         expect(service.get_users).to be_an(Array)
@@ -19,6 +22,9 @@ describe BattleshiftService do
     end
     context '#get_user' do
       it 'returns a hash' do
+        json_response = File.open("./fixtures/single_user.json")
+        stub_request(:get, "http://localhost:3000/api/v1/users/1").
+        to_return(status: 200, body: json_response)
         service = BattleshiftService.new
 
         expect(service.get_user(1)).to be_a(Hash)
