@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/users
+    uri: https://gentle-reef-11092.herokuapp.com/api/v1/users
     body:
       encoding: US-ASCII
       string: ''
@@ -18,22 +18,30 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 11 Oct 2018 23:19:59 GMT
+      Connection:
+      - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"0a3171db1e528d671d74a15749e3b3c7"
+      - W/"384002b18fedba9a4c2c2855b6944189"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f9d81b9a-9f77-47d9-957d-3a80549ee03b
+      - f32aa093-495b-4787-848f-b67fac4dfa98
       X-Runtime:
-      - '0.075108'
+      - '0.010067'
       Transfer-Encoding:
       - chunked
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
       string: '[{"id":2,"name":"Bob Bobson","email":"bbobson@example.com"},{"id":1,"name":"Josiah
-        Bartlet","email":"{\"email\"=\u003e\"josiah@example.com\"}"}]'
+        Bartlet","email":"{\"email\"=\u003e\"jjosiah@example.com\"}"}]'
     http_version: 
-  recorded_at: Thu, 11 Oct 2018 22:43:19 GMT
+  recorded_at: Thu, 11 Oct 2018 23:20:00 GMT
 recorded_with: VCR 4.0.0

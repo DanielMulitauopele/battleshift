@@ -11,7 +11,7 @@ describe AppUserRepo do
     describe 'app_users' do
       it "returns a collection of users" do
         json_response = File.open("./fixtures/all_users.json")
-        stub_request(:get, "http://localhost:3000/api/v1/users").
+        stub_request(:get, "https://gentle-reef-11092.herokuapp.com/api/v1/users").
         to_return(status: 200, body: json_response)
         repo = AppUserRepo.new
 
@@ -22,7 +22,7 @@ describe AppUserRepo do
     describe 'app_user' do
       it "returns a single user" do
         json_response = File.open("./fixtures/single_user.json")
-        stub_request(:get, "http://localhost:3000/api/v1/users/1").
+        stub_request(:get, "https://gentle-reef-11092.herokuapp.com/api/v1/users/1").
         to_return(status: 200, body: json_response)
         repo = AppUserRepo.new
 

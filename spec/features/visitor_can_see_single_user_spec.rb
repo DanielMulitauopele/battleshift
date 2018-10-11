@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'can see single user' do
   scenario 'as a visitor' do
     json_response = File.open("./fixtures/single_user.json")
-    stub_request(:get, "http://localhost:3000/api/v1/users/1").
+    stub_request(:get, "https://gentle-reef-11092.herokuapp.com/api/v1/users/1").
     to_return(status: 200, body: json_response)
     visit "/users/1"
 
