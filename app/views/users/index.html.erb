@@ -1,4 +1,7 @@
 <% @users.each do |u| %>
-<%= u.name %>
-<%= u.email %>
+  <ul class=user-<%= u.id %>>
+    <%= u.name %>
+    <%= u.email %>
+    <%= link_to "Edit", edit_user_path(u.id) %>
+  </ul>
 <% end %>
