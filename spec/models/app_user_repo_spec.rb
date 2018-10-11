@@ -10,6 +10,9 @@ describe AppUserRepo do
   describe 'instance methods' do
     describe 'app_users' do
       it "returns a collection of users" do
+        json_response = File.open("./fixtures/all_users.json")
+        stub_request(:get, "http://localhost:3000/api/v1/users").
+        to_return(status: 200, body: json_response)
         repo = AppUserRepo.new
 
         expect(repo.app_users).to be_an(Array)
@@ -18,6 +21,9 @@ describe AppUserRepo do
     end
     describe 'app_user' do
       it "returns a single user" do
+        json_response = File.open("./fixtures/single_user.json")
+        stub_request(:get, "http://localhost:3000/api/v1/users/1").
+        to_return(status: 200, body: json_response)
         repo = AppUserRepo.new
 
         expect(repo.app_user(1)).to be_an(AppUser)
