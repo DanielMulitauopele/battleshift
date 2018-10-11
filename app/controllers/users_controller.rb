@@ -15,10 +15,11 @@ class UsersController < ApplicationController
   def update
     id = params[:id]
     email = params[:email]
-    conn = Faraday.new(url: "http://localhost:3000")
-    conn.patch("/api/v1/users/#{id}", {email: email})
+    user = AppUserRepo.new.app_user(id)
 
-    flash[:success] = "Successfully updated Josiah Bartlet."
+    BattleshiftService.new.patch_user(id, email)
+
+    flash[:success] = "Successfully updated #{user.name}."
     redirect_to "/users"
   end
 end
