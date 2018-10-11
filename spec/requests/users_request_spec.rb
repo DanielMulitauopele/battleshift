@@ -37,4 +37,20 @@ describe "users api endpoints" do
       expect(returned_user).to have_key(:id)
     end
   end
+
+  context "PATCH /api/v1/users/:id" do
+    it 'edits a specific user' do
+      cj   = User.create!(name: "C.J. Cregg", id: 111, email: "cj@example.com")
+
+      new_email = "cj@cj.com"
+
+      patch "/api/v1/users/#{cj.id}", params: {email: new_email}
+      expect(response.status).to be 200
+
+      updated_response = JSON.parse(response.body, symbolize_names: true)
+
+      expect(updated_response[:email]).to eq(new_email)
+      expect(updated_response[:email]).to_not eq("cj@example.com")
+    end
+  end
 end
