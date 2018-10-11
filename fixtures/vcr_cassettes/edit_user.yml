@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/users/1
+    uri: https://gentle-reef-11092.herokuapp.com/api/v1/users/1
     body:
       encoding: US-ASCII
       string: ''
@@ -18,26 +18,34 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 11 Oct 2018 23:20:06 GMT
+      Connection:
+      - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"84a5450a7ebe700a31c6eacf3c7ec388"
+      - W/"adefe1a928b646b0d0d02307ae5309df"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - '0086108c-b1f9-49b8-b58d-6112baad13b4'
+      - c3645f8e-0739-4979-8ebb-56001b986ddd
       X-Runtime:
-      - '0.005749'
+      - '0.008696'
       Transfer-Encoding:
       - chunked
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"id":1,"name":"Josiah Bartlet","email":"{\"email\"=\u003e\"josiah@example.com\"}"}'
+      string: '{"id":1,"name":"Josiah Bartlet","email":"{\"email\"=\u003e\"jjosiah@example.com\"}"}'
     http_version: 
-  recorded_at: Thu, 11 Oct 2018 22:43:19 GMT
+  recorded_at: Thu, 11 Oct 2018 23:20:07 GMT
 - request:
     method: patch
-    uri: http://localhost:3000/api/v1/users/1
+    uri: https://gentle-reef-11092.herokuapp.com/api/v1/users/1
     body:
       encoding: UTF-8
       string: email=%7B%22email%22%3D%3E%22josiah%40example.com%22%7D
@@ -55,6 +63,12 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 11 Oct 2018 23:20:06 GMT
+      Connection:
+      - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
@@ -62,19 +76,21 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - b0a35ca8-fd4e-4384-8cf1-1d46f33c85c5
+      - 52a27b0e-89b8-4b46-bf41-043d2f031cb4
       X-Runtime:
-      - '0.007795'
+      - '0.012788'
       Transfer-Encoding:
       - chunked
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
       string: '{"id":1,"name":"Josiah Bartlet","email":"{\"email\"=\u003e\"josiah@example.com\"}"}'
     http_version: 
-  recorded_at: Thu, 11 Oct 2018 22:43:19 GMT
+  recorded_at: Thu, 11 Oct 2018 23:20:07 GMT
 - request:
     method: get
-    uri: http://localhost:3000/api/v1/users
+    uri: https://gentle-reef-11092.herokuapp.com/api/v1/users
     body:
       encoding: US-ASCII
       string: ''
@@ -90,6 +106,12 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 11 Oct 2018 23:20:06 GMT
+      Connection:
+      - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
@@ -97,15 +119,17 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 59b7017a-89d0-42ef-a049-a2d7e52ec812
+      - 18d740d1-0636-45cd-8f7f-5f90d7f3d33a
       X-Runtime:
-      - '0.004000'
+      - '0.007580'
       Transfer-Encoding:
       - chunked
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
       string: '[{"id":2,"name":"Bob Bobson","email":"bbobson@example.com"},{"id":1,"name":"Josiah
         Bartlet","email":"{\"email\"=\u003e\"josiah@example.com\"}"}]'
     http_version: 
-  recorded_at: Thu, 11 Oct 2018 22:43:19 GMT
+  recorded_at: Thu, 11 Oct 2018 23:20:07 GMT
 recorded_with: VCR 4.0.0
