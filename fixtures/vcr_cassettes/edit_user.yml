@@ -40,8 +40,8 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"id":1,"name":"Josiah Bartlet","email":"{\"email\"=\u003e\"jjosiah@example.com\"}"}'
-    http_version: 
+      string: '{"id":1,"name":"Josiah Bartlet","email":"jjosiah@example.com"}'
+    http_version:
   recorded_at: Thu, 11 Oct 2018 23:20:07 GMT
 - request:
     method: patch
@@ -86,7 +86,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"id":1,"name":"Josiah Bartlet","email":"{\"email\"=\u003e\"josiah@example.com\"}"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 11 Oct 2018 23:20:07 GMT
 - request:
     method: get
@@ -130,6 +130,6 @@ http_interactions:
       encoding: UTF-8
       string: '[{"id":2,"name":"Bob Bobson","email":"bbobson@example.com"},{"id":1,"name":"Josiah
         Bartlet","email":"{\"email\"=\u003e\"josiah@example.com\"}"}]'
-    http_version: 
+    http_version:
   recorded_at: Thu, 11 Oct 2018 23:20:07 GMT
 recorded_with: VCR 4.0.0
