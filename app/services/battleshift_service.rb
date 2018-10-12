@@ -14,7 +14,8 @@ class BattleshiftService
   private
 
   def conn
-    Faraday.new(url: "https://gentle-reef-11092.herokuapp.com")
+
+    Faraday.new(url: ENV['ROOT_URL'])
   end
 
   def get_json(url)
