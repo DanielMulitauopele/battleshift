@@ -13,9 +13,7 @@ class UsersController < ApplicationController
 
   def update
     user = AppUserRepo.new.app_user(params[:id])
-
     BattleshiftService.new.patch_user(params[:id], user_params)
-
     flash[:success] = "Successfully updated #{user.name}."
     redirect_to "/users"
   end

@@ -7,8 +7,8 @@ class BattleshiftService
     get_json("/api/v1/users/#{id}")
   end
 
-  def patch_user(id, email)
-    conn.patch("/api/v1/users/#{id}", {email: email})
+  def patch_user(id, email_params)
+    conn.patch("/api/v1/users/#{id}", {email: email_params[:email]})
   end
 
   private
