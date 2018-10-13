@@ -35,5 +35,6 @@ feature 'app registration' do
 
     expect(page).to have_content("Welcome, Bec")
     # expect(page).to have_content("Log out")
+    #commenting the above line out, pending completion of other project requirements
   end
 end
