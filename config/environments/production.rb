@@ -57,6 +57,21 @@ Rails.application.configure do
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
+  module Battleshift
+  class Application < Rails::Application
+    config.action_mailer.delivery_method = :smtp
+
+    config.action_mailer.smtp_settings = {
+      address:              'smtp.sendgrid.net',
+      port:                 '587',
+      domain:               'example.com', #does this need to be changed?
+      user_name:            ENV["SENDGRID_USERNAME"],
+      password:             ENV["SENDGRID_PASSWORD"],
+      authentication:       'plain',
+      enable_starttls_auto: true
+    }
+    end
+  end
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "battleship_web_#{Rails.env}"
