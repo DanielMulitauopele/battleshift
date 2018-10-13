@@ -1,0 +1,6 @@
+<%= form_tag "/register", method: :post do %>
+  <%= label_tag :email %>
+  <%= email_field_tag :email, params[:email] %>
+
+  <%= submit_tag "Save" %>
+<% end %>
