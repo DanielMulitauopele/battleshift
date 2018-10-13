@@ -24,7 +24,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to dashboard_path
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to dashboard_path
+    else
+      render :new
+    end
   end
 
   private
