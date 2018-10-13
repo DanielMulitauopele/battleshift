@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   get '/register', to: 'users#new'
+  get '/dashboard', to: 'dashboard#show'
 
   namespace :api do
     namespace :v1 do

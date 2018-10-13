@@ -23,12 +23,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    
+    @user = User.create(user_params)
+    redirect_to dashboard_path
   end
 
   private
 
   def user_params
-    params.permit(:email)
+    params.permit(:email, :name, :password, :password_confirmation)
   end
 end
