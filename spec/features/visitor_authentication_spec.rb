@@ -27,9 +27,11 @@ feature 'app registration' do
     fill_in "Email", with: existing_user.email
     fill_in "Password", with: existing_user.password
 
-    click_on "Log In"
+    VCR.use_cassette("log_in") do
+      click_on "Log In"
+    end
 
-    expect(current_path).to eq(user_path(1))
+    expect(current_path).to eq(user_path(existing_user))
 
     expect(page).to have_content("Welcome, Bec")
     expect(page).to have_content("Log out")
