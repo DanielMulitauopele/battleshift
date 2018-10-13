@@ -7,7 +7,6 @@ describe "users api endpoints" do
 
         get "/api/v1/users"
 
-
       expect(response.status).to be 200
 
       users = JSON.parse(response.body, symbolize_names: true)
