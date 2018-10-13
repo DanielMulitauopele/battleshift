@@ -14,7 +14,7 @@ feature 'visitor can register with app' do
     fill_in "Name", with: "Becca Daniel"
     # And I fill in password and password confirmation (required)
     fill_in "Password", with: "unicorn"
-    fill_in "Password Confirmation", with: "unicorn"
+    fill_in "Password confirmation", with: "unicorn"
     # And I click submit
     click_on "Submit"
     # Then I should be redirected to "/dashboard"
