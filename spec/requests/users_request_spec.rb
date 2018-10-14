@@ -40,10 +40,10 @@ describe "users api endpoints" do
 
   context "PATCH /api/v1/users/:id" do
     it 'edits a specific user' do
-      cj   = User.create!(name: "C.J. Cregg", id: 111, email: "cj@example.com", password: "x")
+      cj = User.create!(name: "C.J. Cregg", id: 111, email: "cj@example.com", password: "x")
       new_email = "cj@cj.com"
 
-        patch "/api/v1/users/#{cj.id}", params: {email: new_email}
+      patch "/api/v1/users/#{cj.id}", params: {email: new_email}
 
       expect(response.status).to be 200
 
