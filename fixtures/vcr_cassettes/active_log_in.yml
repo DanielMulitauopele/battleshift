@@ -21,26 +21,26 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sat, 13 Oct 2018 21:49:10 GMT
+      - Mon, 15 Oct 2018 18:53:21 GMT
       Connection:
       - keep-alive
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"eaa58ab7d90a25cb3f296de7444a6fca"
+      - W/"a08e11e4b95e7adf0cae731868de1905"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5752e6d0-58e4-4b64-899a-a926a854510f
+      - d58c8f4a-566f-475a-b9b4-32f3367f8170
       X-Runtime:
-      - '0.012688'
+      - '0.121013'
       Transfer-Encoding:
       - chunked
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"id":1,"name":"Josiah Bartlet","email":"hello@me.com"}'
+      string: '{"id":1,"name":"Josiah Bartlet","email":"jbarlet@example.com"}'
     http_version: 
-  recorded_at: Sat, 13 Oct 2018 21:49:11 GMT
+  recorded_at: Mon, 15 Oct 2018 18:53:21 GMT
 recorded_with: VCR 4.0.0

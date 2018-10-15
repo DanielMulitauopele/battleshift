@@ -13,6 +13,10 @@
       <%= content_tag :div, message.html_safe, class: type %>
     <% end %>
 
+    <% if current_user %>
+      <%= "Logged in as: #{current_user.name}"%>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
