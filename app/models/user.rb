@@ -25,6 +25,10 @@ class User < ApplicationRecord
     BCrypt::Password.new(digest).is_password?(token)
   end
 
+  def activate
+    update_columns(activated: true)
+  end
+
   private
 
   def create_activation_digest
