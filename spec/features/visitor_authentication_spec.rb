@@ -14,8 +14,7 @@ feature 'app registration' do
     click_on "Submit"
 
     expect(current_path).to eq("/dashboard")
-    expect(page).to have_content("Logged in as Becca Daniel")
-    expect(page).to have_content("This account has not yet been activated. Please check your email.")
+    expect(page).to have_content("Please check your email to activate your account.")
   end
   scenario 'as a user with existing account' do
     existing_user = User.create!(name: "Bec", email: "hi@hi.com", password: "x")
@@ -32,7 +31,6 @@ feature 'app registration' do
     end
 
     expect(current_path).to eq(user_path(existing_user))
-
     expect(page).to have_content("Welcome, Bec")
     # expect(page).to have_content("Log out")
     #commenting the above line out, pending completion of other project requirements

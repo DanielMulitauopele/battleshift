@@ -26,7 +26,6 @@ class UsersController < ApplicationController
     @user = User.create!(user_create_params)
     if @user.save
       session[:user_id] = @user.id
-      # flash[:success] = "Logged in as #{@user.name}"
       AccountVerifierMailer.account_activation(@user).deliver_now
       flash[:info] = "Please check your email to activate your account."
       redirect_to dashboard_path
