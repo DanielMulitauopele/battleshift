@@ -31,6 +31,7 @@ feature 'app registration' do
     end
 
     expect(current_path).to eq(user_path(existing_user))
+    expect(page).to have_content("Logged in as: Bec")
     expect(page).to have_content("Welcome, Bec")
     # expect(page).to have_content("Log out")
     #commenting the above line out, pending completion of other project requirements
