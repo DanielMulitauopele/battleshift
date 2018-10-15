@@ -36,4 +36,22 @@ feature 'app registration' do
     # expect(page).to have_content("Log out")
     #commenting the above line out, pending completion of other project requirements
   end
+
+  scenario 'as a user with unactivated account' do
+    existing_user = User.create!(name: "Bec", email: "hi@hi.com", password: "x", activated: false)
+    visit '/'
+
+    click_on "I already have an account"
+    expect(current_path).to eq(login_path)
+
+    fill_in "Email", with: existing_user.email
+    fill_in "Password", with: existing_user.password
+
+    VCR.use_cassette("inactive_log_in") do
+      click_on "Log In"
+    end
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content("This account has not yet been activated")
+  end
 end
