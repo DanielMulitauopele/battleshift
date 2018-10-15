@@ -9,3 +9,6 @@ development:
 
 test:
   ROOT_URL: https://gentle-reef-11092.herokuapp.com
+
+SENDGRID_USERNAME: app111291164@heroku.com
+SENDGRID_PASSWORD: evukh55a5252
