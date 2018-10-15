@@ -5,6 +5,24 @@ module Api
         game = Game.find(params[:id])
         render json: game
       end
+
+      def create
+        p1_board = Board.new(4)
+        p2_board = Board.new(4)
+        p1 = Player.new(p1_board)
+        p2 = Player.new(p2_board)
+        game = Game.create!(
+          player_1_board: p1.board,
+          player_2_board: p2.board
+        )
+        render json: game
+      end
+
+      private
+
+      def game_params
+        params.require(:game).permit(:id, :player_1_board, :player_2_board, :winner, :player_1_turns, :player_2_turns, :current_turn)
+      end
     end
   end
 end
