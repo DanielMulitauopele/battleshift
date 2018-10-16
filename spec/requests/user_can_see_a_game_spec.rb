@@ -61,9 +61,8 @@ describe 'GET /api/v1/games/1' do
   end
 
   describe 'with no game' do
-    xit 'returns a 400' do
+    it 'returns a 400' do
       get "/api/v1/games/1"
-
       expect(response.status).to be(400)
     end
   end

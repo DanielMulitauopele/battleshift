@@ -2,6 +2,6 @@ Hi <%= @user.name %>,
 
 Welcome to BattleShift! Click on the link below to activate your account:
 
-<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+<%= "#{ENV['ROOT_URL']}/account_activations/#{@user.id}/edit" %>
 
-Here is your unique API key for making API calls: <%= @user.activation_token %>
+Here is your unique API key for making API calls: <%= @user.api_key %>
