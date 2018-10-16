@@ -14,7 +14,6 @@ class BattleshiftService
   private
 
   def conn
-
     Faraday.new(url: ENV['ROOT_URL'])
   end
 

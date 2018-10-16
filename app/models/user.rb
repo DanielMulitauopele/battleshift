@@ -7,23 +7,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  before_create :create_activation_digest
-
-  def User.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end
-
-  def User.new_token
-    SecureRandom.urlsafe_base64
-  end
-
-  def authenticated?(token)
-    digest = self.activation_digest
-    return false if digest.nil?
-    BCrypt::Password.new(digest).is_password?(token)
-  end
+  before_create :assign_api_key
 
   def activate
     update_columns(activated: true)
@@ -31,8 +15,7 @@ class User < ApplicationRecord
 
   private
 
-  def create_activation_digest
-    self.activation_token = User.new_token
-    self.activation_digest = User.digest(activation_token)
+  def assign_api_key
+    self.api_key = SecureRandom.urlsafe_base64
   end
 end
