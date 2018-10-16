@@ -19,8 +19,8 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 
-  def authenticated?(attribute, token)
-    digest = send("#{attribute}_digest")
+  def authenticated?(token)
+    digest = self.activation_digest
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
   end
