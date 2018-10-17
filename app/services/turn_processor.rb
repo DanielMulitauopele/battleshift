@@ -57,7 +57,7 @@ class TurnProcessor
           game.player_2_turns += 1
         end
       else
-        AiSpaceSelector.new(player.board, @target).fire!
+        result = AiSpaceSelector.new(player.board, @target).fire!
         @messages << "The computer's shot resulted in a #{result}."
         if game.player_2_turns == nil
           game.player_2_turns = 1
