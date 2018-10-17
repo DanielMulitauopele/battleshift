@@ -1,10 +1,15 @@
 class AiSpaceSelector
-  def initialize(target_board)
+  def initialize(target_board, target = nil)
     @target_board = target_board
+    @target = target
   end
 
   def fire!
-    select_space.attack!
+    if @target == nil
+      select_space.attack!
+    else
+      @target_board.locate_space(@target).attack!
+    end
   end
 
   private

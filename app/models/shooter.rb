@@ -6,6 +6,7 @@ class Shooter
   end
 
   def fire!
+    #this is where @contents appears and is nil
     if valid_shot?
       space.attack!
     else
