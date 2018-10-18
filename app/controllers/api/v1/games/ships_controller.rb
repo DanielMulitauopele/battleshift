@@ -5,18 +5,22 @@ module Api
         def create
           game = Game.find(params[:game_id])
           ship = Ship.new(params[:ship_size])
-          p1_placer = ShipPlacer.new(board: game.player_1_board,
+          if request.headers["X-API-Key"] == game.player_1_api_key
+            placer = ShipPlacer.new(board: game.player_1_board,
                                   ship: ship,
                                   start_space: params[:start_space],
                                   end_space: params[:end_space]
                                 )
-          p1_placer.run
-          p2_placer = ShipPlacer.new(board: game.player_2_board,
+          elsif request.headers["X-API-Key"] == game.player_2_api_key
+            placer = ShipPlacer.new(board: game.player_2_board,
                                   ship: ship,
                                   start_space: params[:start_space],
                                   end_space: params[:end_space]
                                 )
-          p2_placer.run
+          else
+            render message: "GTFO"
+          end
+          placer.run
 
           game.save
 

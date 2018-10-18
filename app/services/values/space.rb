@@ -9,7 +9,7 @@ class Space
 
   def attack!
     @status = if contents && not_attacked?
-                contents.attack!
+                contents.receive_hit_damage
                 "Hit"
               else
                 "Miss"

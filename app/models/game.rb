@@ -7,4 +7,10 @@ class Game < ApplicationRecord
 
   validates :player_1_board, presence: true
   validates :player_2_board, presence: true
+
+  def valid_space?(target)
+    player_1_board.board.flatten.any? do |space|
+      space.keys.first == target
+    end
+  end
 end
