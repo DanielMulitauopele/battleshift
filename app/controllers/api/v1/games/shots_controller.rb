@@ -24,9 +24,7 @@ module Api
               render json: game, status: 400, message: "Invalid coordinates"
             end
           else
-            # End the game
-            # Render "Player is the winner!"
-            render message: "Winner winner chicken dinner"
+            render json: game, status: 400, message: "Invalid move. Game over."
           end
         end
       end
