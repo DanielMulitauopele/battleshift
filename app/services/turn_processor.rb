@@ -34,12 +34,8 @@ class TurnProcessor
   attr_reader :game, :target
 
   def attack
+    # if board.
     result = Shooter.fire!(board: @board, target: target)
     @messages << "Your shot resulted in a #{result}."
-    # if game.player_1_turns == nil
-    #   game.player_1_turns = 1
-    # else
-    #   game.player_1_turns += 1
-    # end
   end
 end
