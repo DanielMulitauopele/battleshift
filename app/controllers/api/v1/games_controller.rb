@@ -19,8 +19,8 @@ module Api
           player_1_board: p1.board,
           player_2_board: p2.board
         )
-        game.player_1_api_key = ENV['BATTLESHIFT_API_KEY']
-        game.player_2_api_key = ENV['BATTLESHIFT_OPPONENT_API_KEY']
+        game.player_1_api_key = request.headers["X-API-Key"]
+        game.player_2_api_key = User.find_by(email: request["opponent_email"])
         game.save
         render json: game
       end
