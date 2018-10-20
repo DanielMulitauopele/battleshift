@@ -16,4 +16,6 @@ describe AppUser, type: :model do
     expect(app_user.name).to eq(attributes[:name])
     expect(app_user.email).to eq(attributes[:email])
   end
+
+  
 end
