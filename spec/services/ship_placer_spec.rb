@@ -12,6 +12,10 @@ describe ShipPlacer do
     expect(subject).to be_a ShipPlacer
   end
 
+  it "triggers success message from ships controller" do
+    expect(subject.run).to eq("Successfully placed ship with a size of 2. You have 0 ship(s) to place.")
+  end
+
   it "places the ship within a row with empty spaces" do
     a1 = board.locate_space("A1")
     a2 = board.locate_space("A2")
