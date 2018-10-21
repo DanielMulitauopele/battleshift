@@ -20,7 +20,7 @@ module Api
           player_2_board: p2.board
         )
         game.player_1_api_key = request.headers["X-API-Key"]
-        game.player_2_api_key = User.find_by(email: request["opponent_email"])
+        game.player_2_api_key = User.find_by(email: request["opponent_email"]).api_key
         game.save
         render json: game
       end

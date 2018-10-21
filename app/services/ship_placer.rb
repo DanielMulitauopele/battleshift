@@ -9,18 +9,16 @@ class ShipPlacer
   def run
     if same_row?
       place_in_row
-      shovel_ships
     elsif same_column?
       place_in_column
-      shovel_ships
     else
       raise InvalidShipPlacement.new("Ship must be in either the same row or column.")
     end
   end
 
-  def shovel_ships
-    @board.ships << @ship
-  end
+  # def shovel_ships
+  #   @board.ships << @ship
+  # end
 
   private
   attr_reader :board, :ship,
