@@ -2,9 +2,11 @@ module Api
   module V1
     module Games
       class ShipsController < ApiController
+
         def create
           game = Game.find(params[:game_id])
           ship = Ship.new(params[:ship_size])
+
           if request.headers["X-API-Key"] == game.player_1_api_key
             placer = ShipPlacer.new(board: game.player_1_board,
                                   ship: ship,
@@ -20,20 +22,10 @@ module Api
           else
             render message: "GTFO"
           end
-          placer.run
-
+          message = placer.run
           game.save
 
-          render json: game, message: success_message(params[:ship_size])
-        end
-
-        private
-        def success_message(ship_size)
-          if ship_size == 3
-            "Successfully placed ship with a size of 3. You have 1 ship(s) to place with a size of 2."
-          else
-            "Successfully placed ship with a size of 2. You have 0 ship(s) to place."
-          end
+          render json: game, message: message
         end
       end
     end
