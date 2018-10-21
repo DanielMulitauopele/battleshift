@@ -36,7 +36,6 @@ class TurnProcessor
   def attack
     result = Shooter.fire!(board: @board, target: target)
     # @messages << "Your shot resulted in a #{result}."
-    require "pry"; binding.pry
     if @board.ships.all? do |ship|
         if ship.is_sunk?
           @messages << "Your shot resulted in a Hit. Battleship sunk. Game over."
