@@ -35,17 +35,17 @@ class TurnProcessor
 
   def attack
     result = Shooter.fire!(board: @board, target: target)
-
+    # @messages << "Your shot resulted in a #{result}."
     if @board.ships.all? do |ship|
         if ship.is_sunk?
           @messages << "Your shot resulted in a Hit. Battleship sunk. Game over."
         end
       end
       if @game.current_turn == "player_1"
-        @game.winner = ENV["BATTLESHIFT_EMAIL"]
+        @game.winner = User.find_by(api_key: @game.player_1_api_key).email
         @game.save
       else
-        @game.winner = ENV["BATTLESHIFT_OPPONENT_EMAIL"]
+        @game.winner = User.find_by(api_key: @game.player_2_api_key).email
         @game.save
       end
     else
