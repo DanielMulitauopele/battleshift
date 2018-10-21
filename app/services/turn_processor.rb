@@ -35,28 +35,28 @@ class TurnProcessor
 
   def attack
     result = Shooter.fire!(board: @board, target: target)
-    @messages << "Your shot resulted in a #{result}."
-
-    # if @board.ships.all? do |ship|
-    #     if ship.is_sunk?
-    #       @messages << "Your shot resulted in a Hit. Battleship sunk. Game over."
-    #     end
-    #   end
-    #   if @game.current_turn == "player_1"
-    #     @game.winner = ENV["BATTLESHIFT_EMAIL"]
-    #     @game.save
-    #   else
-    #     @game.winner = ENV["BATTLESHIFT_OPPONENT_EMAIL"]
-    #     @game.save
-    #   end
-    # else
-    #   @board.ships.each do |ship|
-    #     if ship.is_sunk?
-    #       @messages << "Your shot resulted in a Hit. Battleship sunk."
-    #     else
-    #       @messages << "Your shot resulted in a #{result}."
-    #     end
-    #   end
-    # end
+    # @messages << "Your shot resulted in a #{result}."
+    require "pry"; binding.pry
+    if @board.ships.all? do |ship|
+        if ship.is_sunk?
+          @messages << "Your shot resulted in a Hit. Battleship sunk. Game over."
+        end
+      end
+      if @game.current_turn == "player_1"
+        @game.winner = ENV["BATTLESHIFT_EMAIL"]
+        @game.save
+      else
+        @game.winner = ENV["BATTLESHIFT_OPPONENT_EMAIL"]
+        @game.save
+      end
+    else
+      @board.ships.each do |ship|
+        if ship.is_sunk?
+          @messages << "Your shot resulted in a Hit. Battleship sunk."
+        else
+          @messages << "Your shot resulted in a #{result}."
+        end
+      end
+    end
   end
 end
