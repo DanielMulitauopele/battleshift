@@ -42,10 +42,10 @@ class TurnProcessor
         end
       end
       if @game.current_turn == "player_1"
-        @game.winner = ENV["BATTLESHIFT_EMAIL"]
+        @game.winner = User.find_by(api_key: @game.player_1_api_key).email
         @game.save
       else
-        @game.winner = ENV["BATTLESHIFT_OPPONENT_EMAIL"]
+        @game.winner = User.find_by(api_key: @game.player_2_api_key).email
         @game.save
       end
     else
